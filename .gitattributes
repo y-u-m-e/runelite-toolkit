@@ -1,0 +1,12 @@
+# Normalize line endings to LF in the repo and working tree.
+* text=auto eol=lf
+
+# Gradle wrapper: script stays LF, batch file stays as generated (CRLF).
+gradlew        text eol=lf
+*.bat          -text
+
+# Binary files: never normalize or diff their bytes.
+*.jar   binary
+*.png   binary
+*.jpg   binary
+*.gif   binary
