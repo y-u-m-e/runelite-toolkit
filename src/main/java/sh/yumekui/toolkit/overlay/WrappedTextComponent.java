@@ -17,8 +17,15 @@ import net.runelite.client.ui.overlay.components.TextComponent;
  * A line of coloured segments for an {@code OverlayPanel} that wraps instead of clipping when the
  * player makes the box narrower, and never scales its text. See {@link WrappedText} for the rules.
  *
- * <p>Use it from the overlay's {@code render} on the client render thread:
+ * <p>Segment text is plain text: RuneLite tags such as {@code <col=...>} would be measured as
+ * characters, so the box would wrap early (it never clips). Colour comes from each segment.
+ *
+ * <p>Keep one instance as a field of the overlay ({@code OverlayPanel} clears its children each
+ * frame; a new instance per frame would lose the cached layout), and use it from the overlay's
+ * {@code render} on the client render thread:
  * <pre>{@code
+ * private final WrappedTextComponent text = new WrappedTextComponent();
+ * ...
  * text.setSegments(segments);
  * setMinimumSize(text.minimumWidth(graphics));   // the box can't go narrower than the widest word
  * panelComponent.getChildren().add(text);

@@ -36,5 +36,6 @@ First release: the toolkit as it stood in the RFL plugin repository at commit
 
 - The package README now points at the vendoring scripts instead of describing a manual copy.
 
-[Unreleased]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/y-u-m-e/runelite-toolkit/releases/tag/v0.1.0
