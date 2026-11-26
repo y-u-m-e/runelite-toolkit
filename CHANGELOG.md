@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-26
+
+### Changed
+
+- **Breaking:** package root renamed from `sh.yumekui.toolkit` to `ws.yume.toolkit`; update imports and re-vendor. `scripts/vendor.sh` removes the old directory.
+
 ## [0.2.0] - 2026-11-26
 
 ### Added
@@ -36,6 +42,7 @@ First release: the toolkit as it stood in the RFL plugin repository at commit
 
 - The package README now points at the vendoring scripts instead of describing a manual copy.
 
-[Unreleased]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/y-u-m-e/runelite-toolkit/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/y-u-m-e/runelite-toolkit/releases/tag/v0.1.0

@@ -10,8 +10,8 @@ set -eu
 PLUGIN=$1
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-PKG=src/main/java/sh/yumekui/toolkit
-TEST_PKG=src/test/java/sh/yumekui/toolkit
+PKG=src/main/java/ws/yume/toolkit
+TEST_PKG=src/test/java/ws/yume/toolkit
 STAMP="$PLUGIN/$PKG/VENDORED"
 
 [ -f "$STAMP" ] || { echo "check-vendored: no VENDORED file at $STAMP" >&2; exit 2; }

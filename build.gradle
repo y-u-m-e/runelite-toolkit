@@ -33,8 +33,8 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
-group = 'sh.yumekui'
-version = '0.2.0'
+group = 'ws.yume'
+version = '0.3.0'
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'

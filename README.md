@@ -1,7 +1,7 @@
 # runelite-toolkit
 
 Small, plugin-neutral building blocks for [RuneLite](https://runelite.net) plugins, in the Java
-package `sh.yumekui.toolkit`. Every piece follows the Plugin Hub rules, so it can ship inside a Hub
+package `ws.yume.toolkit`. Every piece follows the Plugin Hub rules, so it can ship inside a Hub
 plugin unchanged.
 
 ## Why vendoring
@@ -38,7 +38,7 @@ Because it ships inside plugins, the toolkit keeps the same rules a plugin does:
 
 Each type's javadoc says what it does, which thread it expects and where its numbers come from.
 The full per-type index and the dependencies between packages are in
-[`src/main/java/sh/yumekui/toolkit/README.md`](src/main/java/sh/yumekui/toolkit/README.md).
+[`src/main/java/ws/yume/toolkit/README.md`](src/main/java/ws/yume/toolkit/README.md).
 
 ## Quick start
 
@@ -52,9 +52,9 @@ sh scripts/vendor.sh --with-tests v0.1.0 ../my-plugin  # also copy the tests
 ```
 
 `vendor.sh` checks the tag out into a temporary worktree, replaces
-`<plugin>/src/main/java/sh/yumekui/toolkit/` (and, with `--with-tests`,
-`<plugin>/src/test/java/sh/yumekui/toolkit/`) with the tag's copy, and writes
-`<plugin>/src/main/java/sh/yumekui/toolkit/VENDORED`:
+`<plugin>/src/main/java/ws/yume/toolkit/` (and, with `--with-tests`,
+`<plugin>/src/test/java/ws/yume/toolkit/`) with the tag's copy, and writes
+`<plugin>/src/main/java/ws/yume/toolkit/VENDORED`:
 
 ```
 tag=v0.1.0
