@@ -30,7 +30,7 @@ Because it ships inside plugins, the toolkit keeps the same rules a plugin does:
 | `geom` | `TriangleMesh` | Posed model triangles and exact triangle-triangle intersection. |
 | `io` | `GzipNdjsonWriter`, `WriterState`, `DailyJsonlAppender`, `IoErrors` | Off-thread gzipped NDJSON and daily JSONL files, with readable error reasons. |
 | `model` | `ModelCapture`, `Palette`, `RenderableModels`, `VertexSnapshot` | Copy and pose model geometry; the client's HSL16 colour table. |
-| `overlay` | `TilePainter`, `MeshProjector` | Draw tiles and mesh triangles cheaply each frame. |
+| `overlay` | `TilePainter`, `MeshProjector`, `WrappedText`, `WrappedTextComponent` | Draw tiles and mesh triangles cheaply each frame; fixed-size overlay text that wraps instead of clipping. |
 | `scene` | `PohDetector`, `SceneStamps` | Player-owned-house detection; tie stored tiles to the scene they came from. |
 | `swing` | `SidebarWidgets`, `ConfirmHeader`, `SelectableCard`, `ToggleSelection`, `CopyFeedbackLabel` | Fixed-size side-panel widgets. |
 | `text` | `FileNameTemplate`, `PlayerNames`, `Html` | Safe file names, RuneLite-style name matching, Swing HTML escaping. |

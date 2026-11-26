@@ -6,6 +6,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-26
+
+### Added
+
+- `overlay.WrappedText`: lays fixed-size text out at a given width. Segments share a line when
+  they fit, then each starts its own line and words wrap; a word is never split, and the width
+  never goes below the widest word.
+- `overlay.WrappedTextComponent`: an `OverlayPanel` child that renders `WrappedText` at the
+  width the panel gives it, reports the height it needs, and gives the box's minimum width.
+  The layout is cached until the segments, font or width change.
+
 ## [0.1.0] - 2026-10-04
 
 First release: the toolkit as it stood in the RFL plugin repository at commit

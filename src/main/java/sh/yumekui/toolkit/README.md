@@ -30,6 +30,8 @@ stays inside the Plugin Hub rules.
 | `model` | `VertexSnapshot` | Saves a model's untouched vertices so they can be put back before each pose; a cached model then never drifts. |
 | `overlay` | `TilePainter` | An outlined, lightly filled tile. |
 | `overlay` | `MeshProjector` | Draws mesh triangles with each vertex projected at most once per frame into reused buffers. |
+| `overlay` | `WrappedText` | Lays fixed-size text out at a width: segments share a line if they fit, then words wrap; never narrower than the widest word. |
+| `overlay` | `WrappedTextComponent` | `OverlayPanel` child that renders `WrappedText` and reports the box's minimum width. |
 | `scene` | `PohDetector` | Whether the local player is in a player-owned house, using RuneLite's own POH template regions. |
 | `scene` | `SceneStamps` | Stamps a stored scene tile with the scene it came from, so it is never drawn on a reloaded scene. |
 | `swing` | `SidebarWidgets` | Fixed-height rows, truncating and fixed-width labels, height caps, a dot icon and a scrolling display, for side panels whose cards never change size. |
