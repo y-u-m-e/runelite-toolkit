@@ -22,6 +22,7 @@ value() {
 TAG=$(value tag)
 RECORDED=$(value commit)
 TESTS=$(value tests)
+ONLY=$(value only)
 [ -n "$TAG" ] || { echo "check-vendored: VENDORED has no tag=" >&2; exit 2; }
 
 COMMIT=$(git -C "$ROOT" rev-parse --verify --quiet "refs/tags/$TAG^{commit}") || {
@@ -48,7 +49,18 @@ compare_tree() {
     # $1 = path relative to a repo root. Lists files that differ, are missing, or are extra.
     want="$WORK/tree/$1"
     have="$PLUGIN/$1"
-    (cd "$want" && find . -type f) | sort > "$WORK/want.txt"
+    if [ -n "$ONLY" ] && [ "$1" = "$PKG" ]; then
+        # A subset copy: only the listed paths are expected.
+        old_ifs=$IFS
+        IFS=,
+        for item in $ONLY; do
+            item=${item%/}
+            (cd "$want" && find "./$item" -type f)
+        done | sort > "$WORK/want.txt"
+        IFS=$old_ifs
+    else
+        (cd "$want" && find . -type f) | sort > "$WORK/want.txt"
+    fi
     if [ -d "$have" ]; then
         (cd "$have" && find . -type f ! -path ./VENDORED) | sort > "$WORK/have.txt"
     else
@@ -81,4 +93,4 @@ fi
 if [ "$DRIFT" -ne 0 ]; then
     exit 1
 fi
-echo "check-vendored: OK, $PLUGIN matches toolkit $TAG ($(echo "$COMMIT" | cut -c1-7))$( [ "$TESTS" = true ] && echo ', tests included')"
+echo "check-vendored: OK, $PLUGIN matches toolkit $TAG ($(echo "$COMMIT" | cut -c1-7))$( [ "$TESTS" = true ] && echo ', tests included')$( [ -n "$ONLY" ] && echo ", only $ONLY")"

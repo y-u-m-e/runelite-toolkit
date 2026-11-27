@@ -49,7 +49,14 @@ git clone https://github.com/y-u-m-e/runelite-toolkit.git
 cd runelite-toolkit
 sh scripts/vendor.sh v0.1.0 ../my-plugin            # main sources only
 sh scripts/vendor.sh --with-tests v0.1.0 ../my-plugin  # also copy the tests
+sh scripts/vendor.sh --only overlay/WrappedText.java,overlay/WrappedTextComponent.java v0.4.0 ../my-plugin
 ```
+
+`--only` (0.4.0+) copies just the listed packages or classes, so a plugin ships no toolkit code it
+doesn't use. Plugin Hub reviewers read the whole jar, and unused file-writing or thread code draws
+questions. The run fails if a copied file imports a toolkit class that was left out; same-package
+references need no import, so build the plugin afterwards. `--only` and `--with-tests` don't
+combine.
 
 `vendor.sh` checks the tag out into a temporary worktree, replaces
 `<plugin>/src/main/java/ws/yume/toolkit/` (and, with `--with-tests`,
@@ -61,6 +68,7 @@ tag=v0.1.0
 commit=<full commit SHA>
 date=<YYYY-MM-DD, UTC>
 tests=<true|false>
+only=<the --only list, when used>
 ```
 
 It never commits in the plugin repository; it prints a suggested commit message instead.
@@ -71,7 +79,8 @@ Check that a plugin's copy still matches its recorded tag:
 sh scripts/check-vendored.sh ../my-plugin
 ```
 
-It exits non-zero on any drift and lists the files that changed, are missing, or are extra. A
+It exits non-zero on any drift and lists the files that changed, are missing, or are extra.
+For an `--only` copy it checks just the listed paths. A
 plugin can run it in its own CI.
 
 Both scripts are POSIX `sh` and run on Linux, macOS and Git Bash on Windows.
